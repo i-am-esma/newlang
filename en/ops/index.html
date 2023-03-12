@@ -1,0 +1,696 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A programming language with a simple no-keyword syntax for computing tensors and rational numbers with unlimited precision">
+      
+      
+        <meta name="author" content="rsashka">
+      
+      
+        <link rel="canonical" href="https://i-am-esma.github.io/newlang/en/ops/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+    
+    
+      
+        <title>Ops - NewLang Programming Language</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7bf56d0a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NewLang Programming Language" class="md-header__button md-logo" aria-label="NewLang Programming Language" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NewLang Programming Language
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ops
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/i-am-esma/newlang" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I-am-Esma/NewLang
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NewLang Programming Language" class="md-nav__button md-logo" aria-label="NewLang Programming Language" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NewLang Programming Language
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/i-am-esma/newlang" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I-am-Esma/NewLang
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ru/syntax/" class="md-nav__link">
+        Syntax
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribution.md" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Операторы и управляющие конструкции
+  </a>
+  
+    <nav class="md-nav" aria-label="Операторы и управляющие конструкции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Создания объектов и присвоения новых значений
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Присваивание значения сразу нескольким переменным и оператор распаковки словаря
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Арифметические операторы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Операторы сравнения:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Проверка типа (имени класса объекта):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Утиная типизация
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Управляющие конструкции
+  </a>
+  
+    <nav class="md-nav" aria-label="Управляющие конструкции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Условный оператор
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    Оценка выражения
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    Операторы циклов
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    Операторы прерывания выполнения (оператор возврата)
+  </a>
+  
+    <nav class="md-nav" aria-label="Операторы прерывания выполнения (оператор возврата)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    Прерывания, возврат и обработка ошибок
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Ops</h1>
+
+<h2 id="_1">Операторы и управляющие конструкции</h2>
+<h3 id="_2">Создания объектов и присвоения новых значений</h3>
+<p>Для создания объектов и присвоения им новых значений в NewLang используется сразу три разных оператора:
+- <strong>::=</strong> - используется только для создания новых объектов, а если объект с таким именем уже существует, то генерируется ошибка.
+- <strong>:=</strong> - используется для тех же целей, но если объект с таким именем уже существует, то ошибки не происходит, а новое значение присваивается уже существующему объекту.
+- <strong>=</strong> - применяется только для присвоения значения уже существующим объектам, и если объект с указанным именем отсутствует, то тоже происходит ошибка выполнения.</p>
+<p>Использование трех разных операторов для создания/изменения объектов позволяет более гибко контролировать подобные операции и выявлять логические ошибки в коде на более раннем этапе. Например, при определении класса:</p>
+<pre><code>:NewClass2 := :NewClass() {
+    filed ::= 2; # Будет ошибка, т.к. если field уже есть в базовом классе
+    method() = {}; # Аналог override, т.к. method должен существовать в базовом классе
+};
+</code></pre>
+<p>Если же контролировать момент создание объектов и присвоения им значений не требуется, то можно пользоваться единственным оператором <strong>:=</strong>.</p>
+<pre><code>    var ::= 1.0; # Создать новую переменную var без явного указания типа
+    var = 100; # Присвоить новое значение уже существующей переменной
+    printf := :Pointer('printf(format:FmtChar, ...):Int32'); /* Создать новый или переопределить существующий объект printf */
+</code></pre>
+<h3 id="_3">Присваивание значения сразу нескольким переменным и оператор распаковки словаря</h3>
+<p><em>NewLang</em> поддерживает операцию присваивания сразу нескольким переменным, которые должны быть перечислены через запятую слева от оператора присвоения. С правой стороны от оператора присвоения может находится одно или несколько значений или оператор распаковки словаря <strong>...</strong> (многоточие). Оператор распаковки словаря можно использовать и при передаче аргументов в функцию. </p>
+<p>Причем словарь может быть указан и с левой стороны от оператора присвоения и таким образом можно записать самый простой способ перебора всех его элементов: <code>item, dict := ... dict;</code>, т.е. когда в цикле первый элемент словаря сохраняется в переменную item, а из самого словаря удаляется.</p>
+<p>Пример реализации цикла foreach для суммирования всех элементов словаря (или одномерного тензора) с использованием оператора раскрытия списка:</p>
+<pre><code>    summa := 0;
+    dict := (1,2,3,4,5,);
+    \while( dict ) {
+        # Первый элемент словаря перемещается в item
+        item, dict := ... dict; 
+        summa += item;
+    };
+</code></pre>
+<h3 id="_4">Арифметические операторы</h3>
+<p>Все операторы имеют парный аналог с присвоением значения:
+- <strong>+</strong> и <strong>+=</strong> — сложение арифметических типов данных;
+- <strong>-</strong> и <strong>-=</strong> — вычитание арифметических типов данных;
+- <strong>/</strong> и <strong>/=</strong> — деление (результат число с плавающей точкой);
+- <strong>//</strong> и <strong>//</strong>= — целочисленное деление с округлением к меньшему числу (как в Python);
+- <strong>*</strong> и <strong>*=</strong> — умножение;
+- <strong>**</strong> и <strong>**=</strong> — возведение в степень (он же используется и для повторения текстовых строк);</p>
+<h3 id="_5">Операторы сравнения:</h3>
+<ul>
+<li><strong>&lt;</strong>, <strong>&gt;</strong>, <strong>&lt;=</strong>, <strong>&gt;=</strong> — классические для сравнения скаляров</li>
+<li><strong>==</strong> и <strong>!=</strong> — операторы сравнения с автоматическим приведением совместимых типов для любых объектов</li>
+<li><strong>===</strong> и <strong>!==</strong> — операторы точного сравнения для любых объектов (автоматического приведения типов не выполняется)</li>
+</ul>
+<h3 id="_6">Проверка типа (имени класса объекта):</h3>
+<p>Для оператора проверки имени типа (класса) объекта используется символ тильда <strong>~</strong>. Он немного похож на оператор <em>instanceof</em> в Java. Левым операндом должен быть проверяемый объект, а правым — проверяемый тип, который можно указать строкой литералом, переменной строкового типа или именем проверяемого класса непосредственно. Результатом операции будет истина, если правый операнд содержит название класса проверяемого объекта или он присутствует в иерархии наследования.</p>
+<pre><code>    name := &quot;class&quot;; # Строковая переменная с именем класса
+    var ~ name; 
+    var ~ :class; # Сравнение с типом
+    var ~ &quot;class&quot;; # Имя типа как строка литерал
+</code></pre>
+<h3 id="_7">Утиная типизация</h3>
+<p>Оператор утиной типизации, два символа тильды <strong>~~</strong> — приблизительный аналог функции <em>isinstance()</em> в Python, который для простых типов сравнивает непосредственную совместимость типа левого операнда по отношению к правому. А для словарей и классов в левом операнде проверяется наличие всех имен полей, присутствующих у правого операнда, т.е.:</p>
+<pre><code>    (field1=«value», field2=2,) ~~ (); # Истина (т. е. левый операнд словарь)
+    (field1=«value», field2=2,) ~~ (field1=_); # Тоже истина (т. к. поле field1 присутствует у левого операнда)
+    (field1=«value», field2=2,) ~~ (not_found=_); # Ложь, т.к. поле not_found у левого операнда отсутствует
+</code></pre>
+<p>Строгая утиная типизация <strong>~~~</strong> — для простых типов сравнивается идентичности типов без учета совместимости, а для составных типов происходит сравнение всех свойств с помощью оператора строгого равенства. Для данной операции, пустой тип совместим только с другим пустим типом.</p>
+<h2 id="_8">Управляющие конструкции</h2>
+<p>К управляющим конструкциям языка NewLang относятся условный оператор, два вида циклов, оператор оценки выражения, оператор прерывания последовательности выполнения команд и перехват прерывания. Операторы проверки условий всегда указываются в квадратных скобках, а последовательность команд для выполнения — в фигурных.</p>
+<h3 id="_9">Условный оператор</h3>
+<p>В качестве оператора проверки условия используется синтаксическая конструкция, соответствующая по смыслу термину «следует», т.е. два тире и угловая скобка <strong>--&gt;</strong>. Такая запись условного оператора очень похожа на математическую и легко объединяется в последовательности для проверки множественных условий вида «else if».</p>
+<p>В общем случае условный оператор имеет вид: <strong>[</strong> условие <strong>] --&gt; {</strong> действие <strong>};</strong> или с условием иначе <strong>[</strong> условие <strong>] --&gt; {</strong> действие <strong>}, [_] --&gt; {</strong> действие иначе <strong>};</strong></p>
+<p>Для наглядности записанный с отступами:</p>
+<pre><code>    [ условие1 ] --&gt; { действие1 },
+    [ условие2 ] --&gt; действие2,
+    [ условие3 ] --&gt; действие3,
+    [_] --&gt; {действие_иначе};
+</code></pre>
+<p>Или тоже самое, но с использованием <a href="https://newlang.net/syntax_dsl.html">макросов из модуля dsl</a>.:</p>
+<pre><code>    \if( условие1 ) { 
+        действие1 
+    } \elif( условие2 ) действие2
+    \elif( условие3 ) действие3
+    \else { 
+        действие_иначе
+    };
+</code></pre>
+<h3 id="_10">Оценка выражения</h3>
+<p>Синтаксическая конструкция с помощью которой реализуется аналог оператора switch выглядит следующим образом:</p>
+<pre><code>    [ $var ] ==&gt; {
+        [1] --&gt; { code }; # Выполнится проверка условия $var == 1
+        [1, 2] --&gt; { code }; # Выполнится проверка условия ($var == 1 || $var == 2)
+        [_] --&gt; { code default }; # Ветка условия иначе
+    };
+</code></pre>
+<p>Или тоже самое, но с использованием <a href="https://newlang.net/syntax_dsl.html">макросов из модуля dsl</a>.:</p>
+<pre><code>    \match( $var ) ==&gt; {
+        \if( 1 ) { code };
+        \if( 1, 2) { code };
+        \else { code default };
+    };
+</code></pre>
+<p>Этот оператор очень похож на <em>Pattern Matching</em>, но все же не является сопоставлением с образцом, а скорее более краткая запись множественного оператора сравнения, так как в качестве оператора для оценки могут быть использован любые имеющиеся операторы сравнения на равенство:
+- <strong>==&gt;</strong> — проверка на равенство с приведением типов;
+- <strong>===&gt;</strong> — проверка на точное равенство;
+- <strong>~&gt;</strong> — проверка типа (имени класса);
+- <strong>~~&gt;</strong> — утиная типизация;
+- <strong>~~~&gt;</strong> — строгая утиная типизация.</p>
+<p>Но если в качестве оператора сравнения использовать оператор утиной типизации, то оценка выражения превращается в классический <em>Pattern Matching</em>:</p>
+<pre><code>    $value := (f1=1, f2=&quot;2&quot;,);
+    \match( $value ) ~~~&gt; {
+        \if((f1=_, ), (f1=_, f2=0, )) { code }; # Поле f2 отсутствует или число 
+        \if((f1=_, f2=&quot;&quot;,), (f1=_, f2='',)) { code }; # Поле f2 строка
+        \else { code default }; # Код по умолчанию
+    };
+</code></pre>
+<h3 id="_11">Операторы циклов</h3>
+<p>Для записи циклов используются оператор <strong>&lt;-&gt;</strong>, который ставится между условием цикла (проверкой логического выражения) и телом цикла. Условие цикла записывается в квадратных скобках и в зависимости от взаимного расположения цикл может быть с предусловием (while) или постусловием (dowhile):</p>
+<pre><code>    [условие while] &lt;-&gt; {
+        тело цикла while
+    };
+
+    {
+        тело цикла dowhile
+    } &lt;-&gt; [условие dowhile];
+</code></pre>
+<p>Пример реализации цикла foreach для суммирования всех элементов словаря (или одномерного тензора) с использованием оператора раскрытия списка:</p>
+<pre><code>    summa := 0;
+    dict := (1,2,3,4,5,);
+    [ dict ] &lt;-&gt; { # Условие цикла, пока есть данные
+        item, dict := ... dict; # Результат оператора распаковка словаря - первый его элемент перемещается в item
+        summa += item; # Вычисление суммы всех элементов словаря
+    };
+</code></pre>
+<p>Цикл с предусловием (<strong>while</strong>) поддерживает конструкцию <strong>else</strong>, которая выполняется, если условие входа в цикл не было выполнено. </p>
+<blockquote>
+<p><em>Внимание! 
+Это поведение отличается от аналогичных конструкций в языке Python, у которого секция </em><em>else</em><em> выполняется всегда, кроме прерывания цикла по break.</em></p>
+</blockquote>
+<p>Ветка <strong>else</strong> у оператора цикла записывается так же как и ветка <em>иначе</em> в условном операторе, т.е. </p>
+<pre><code>    [ cond ] &lt;-&gt; {
+        ...
+    },[_] --&gt; {
+        ...
+    };
+</code></pre>
+<p>Или тоже самое, но с использованием <a href="https://newlang.net/syntax_dsl.html">макросов из модуля dsl</a>.:</p>
+<pre><code>    \while(cond) {
+        ...
+    } \else {
+        ... # Выполнится, только если cond будет false при входе в цикл
+    };
+</code></pre>
+<h2 id="_12">Операторы прерывания выполнения (оператор возврата)</h2>
+<h3 id="_13">Прерывания, возврат и обработка ошибок</h3>
+<p>Изменена, а точнее полностью переделана идеология возвратов из функций и обработки ошибок. Теперь она чем-то похожа на подход, примененный в Ruby. Любая последовательность команд заключенные в фигурные скобки (в том числе тело функции), рассматривается как блок кода у которого нет специального оператора аналога <strong>return</strong>, который возвращает какое либо значение. Просто любой блок кода всегда возвращает последнее вычисленное значение (это чем то похоже на оператор «запятая» в языках C/C++).</p>
+<p>Для того, чтобы прервать выполнение кода используются две разные команды - прерывания, которые условно можно назвать <em>положительным</em> и <em>отрицательным</em> результатом. Что примерно соответствует семантике их записи. "Отрицательное" прерывание записывается в виде двух минусов, а "положительное" прерывание в виде двух плюсов, т.е. <strong>--</strong> или <strong>++</strong>.</p>
+<p>По умолчанию данные операции возвращают пустое значение. Чтобы прерывание вернуло результат, возвращаемые данные нужно записывать между парой соответствующих символов, т.е. <strong>--</strong> 100 <strong>--</strong>, что является близким аналогом оператора <code>return 100;</code> в других языках программирования, а <strong>++</strong>«Строка»<strong>++</strong> - аналогом <code>return «Строка»;</code>.</p>
+<p>Хотя более точным аналогом этих операторов будет все таки не <strong>return</strong>, а <strong>throw</strong>, т.к. эти команды не только прерывают выполнение последовательности команд в блоке, но их еще можно «ловить». Для этого используется блок кода с соответствующей семантикой, <strong>{+</strong> … <strong>+}</strong> - блок кода, который перехватывает положительные прерывания и <strong>{-</strong> … <strong>-}</strong> - блок кода, который перехватывает прерывания, созданные операторами <strong>--</strong>. </p>
+<p>Подобная концепция (в явном виде не разделять возвраты из функций и обработку исключений), хоть и выглядит немного необычной, но позволяет реализовывать несколько очень полезных финтов, которые сложно реализуемые в обычных языках программирования.</p>
+<p>Например, возврат из нескольких вложенных функций без необходимости обрабатывать результат возврата каждой из них. В этом примере функция <em>Test</em> перехватывает "положительные" прерывания из вложенных функций:</p>
+<pre><code>    Test0(arg) := { \if($arg==0) \return(&quot;DONE - 0&quot;); «FAIL» };
+    Test1(arg) := { \if($arg==1) \return(&quot;DONE - 1&quot;); Test0($arg); };
+    Test(arg) := {+ \if($arg &gt;= 0) Test1($arg); $arg; +};
+
+    Test(0); # Вернет «DONE — 0» возврат из вложенной функции Test0
+    Test(1); # Вернет «DONE — 1» возврат из вложенной функции Test1
+    Test(2); # Вернет «FAIL» возврат из вложенной функции Test0
+    Test(-2); # Вернет -2 — возврат из функции Test
+</code></pre>
+<p>Есть еще блок <code>{* … *}</code>, который перехватывает оба типа прерываний. Такой блок кода поддерживает типизацию возвращаемого значения, что позволяет в явном виде указывать типы данных, которые нужно перехватывать. Например, <code>{* ... *} :Type1</code> — будет перехвачено прерывание вида <code>++ :Type1 ++</code> или <code>--:Type1--</code>, что позволяет очень гибко формировать логику работы программы.</p>
+<p>Блоки кода с перехватом исключений также поддерживают оператор иначе (<em>\else</em>) который, по аналогии с оператором <em>\else</em> в циклах, выполняется только тогда, если прерывания не произошло.</p>
+<p>Можно указать сразу несколько типов, которые нужно перехватывать:</p>
+<pre><code>    {* 
+        ....
+    *} &lt;:Type1, :Type2, :Type3&gt;;
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016-2023 Ryabikov Aleksandr
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rsashka" target="_blank" rel="noopener" title="Ryabikov Aleksandr on Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.indexes", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      
+    
+  </body>
+</html>

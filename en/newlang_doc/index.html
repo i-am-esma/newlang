@@ -1,0 +1,1734 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A programming language with a simple no-keyword syntax for computing tensors and rational numbers with unlimited precision">
+      
+      
+        <meta name="author" content="rsashka">
+      
+      
+        <link rel="canonical" href="https://i-am-esma.github.io/newlang/en/newlang_doc/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.2">
+    
+    
+      
+        <title>Синтаксис NewLang (0.3) - NewLang Programming Language</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7bf56d0a.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#newlang-03" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="NewLang Programming Language" class="md-header__button md-logo" aria-label="NewLang Programming Language" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NewLang Programming Language
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Синтаксис NewLang (0.3)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="amber" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/i-am-esma/newlang" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I-am-Esma/NewLang
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NewLang Programming Language" class="md-nav__button md-logo" aria-label="NewLang Programming Language" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    NewLang Programming Language
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/i-am-esma/newlang" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    I-am-Esma/NewLang
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ru/syntax/" class="md-nav__link">
+        Syntax
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribution.md" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    Основы
+  </a>
+  
+    <nav class="md-nav" aria-label="Основы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Правила именования объектов и типов данных
+  </a>
+  
+    <nav class="md-nav" aria-label="Правила именования объектов и типов данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Префиксы (модификаторы)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Локальные и глобальные переменные
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Пространства имен
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Программные модули
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Макросы
+  </a>
+  
+    <nav class="md-nav" aria-label="Макросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Определение макросов
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Специальные идентификаторы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    Зарезервированные имена компилятора
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    Системные свойства
+  </a>
+  
+    <nav class="md-nav" aria-label="Системные свойства">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    У всех переменных (объектов) есть системные свойства
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    Системные свойства у модулей
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newlang" class="md-nav__link">
+    Система типов NewLang
+  </a>
+  
+    <nav class="md-nav" aria-label="Система типов NewLang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    Преобразование типов
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    Числовые типы данных
+  </a>
+  
+    <nav class="md-nav" aria-label="Числовые типы данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    Арифметические типы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    Рациональные числа
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    Символьные строки
+  </a>
+  
+    <nav class="md-nav" aria-label="Символьные строки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    Форматирование строк
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    Функции
+  </a>
+  
+    <nav class="md-nav" aria-label="Функции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    Обычные функции
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    Чистые функции
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    Объектно ориентированное программирование
+  </a>
+  
+    <nav class="md-nav" aria-label="Объектно ориентированное программирование">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    Словарь
+  </a>
+  
+    <nav class="md-nav" aria-label="Словарь">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    Словарь как литерал
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    Перечисление, структура и объединение
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    Классы
+  </a>
+  
+    <nav class="md-nav" aria-label="Классы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    Интерфейсы, именование методов классов и пространства имен
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    Конструкторы, деструкторы и финализаторы у объектов
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    Нативные (машинные) типы данных
+  </a>
+  
+    <nav class="md-nav" aria-label="Нативные (машинные) типы данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pointer" class="md-nav__link">
+    :Pointer — указатель на системную область памяти или нативную функцию
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plain" class="md-nav__link">
+    :Plain — указатель на представление данных в бинарном виде
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    Перечисление, структура и объединение
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    Итераторы
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    Специальные типы данных
+  </a>
+  
+    <nav class="md-nav" aria-label="Специальные типы данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#none" class="md-nav__link">
+    Пусто (:None)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    Диапазон (:Range)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    Операторы и управляющие конструкции
+  </a>
+  
+    <nav class="md-nav" aria-label="Операторы и управляющие конструкции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    Создания объектов и присвоения новых значений
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    Присваивание значения сразу нескольким переменным и оператор распаковки словаря
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    Арифметические операторы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    Операторы сравнения:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    Проверка типа (имени класса объекта):
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    Утиная типизация
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    Управляющие конструкции
+  </a>
+  
+    <nav class="md-nav" aria-label="Управляющие конструкции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    Условный оператор
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    Оценка выражения
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    Операторы циклов
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    Операторы прерывания выполнения (оператор возврата)
+  </a>
+  
+    <nav class="md-nav" aria-label="Операторы прерывания выполнения (оператор возврата)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    Прерывания, возврат и обработка ошибок
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    Макросы
+  </a>
+  
+    <nav class="md-nav" aria-label="Макросы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    Особенности ассоциативной памяти
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    Синтаксис на ключевых словах
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    Константы
+  </a>
+  
+    <nav class="md-nav" aria-label="Константы">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    Логические
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    Системные имена
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    Типовые функции и проверки
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    Операторы
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    Прерывания
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="newlang-03">Синтаксис NewLang (0.3)</h1>
+<h2 id="_1">Основы</h2>
+<ul>
+<li>Операторы разделяются точкой с запятой «;».</li>
+<li>Отступы и переводы строк игнорируются.</li>
+<li>Однострочные комментарии начинаются с символа «#» до перевода строки, что соответствует комментариям в стиле Python и Bash.</li>
+<li>Многострочные комментарии соответствуют стилю С/С++ и должны располагаться между символами /<em> и </em>/. Многосточные комментарии могут быть вложенными.</li>
+<li>Последовательность команд, которая должна выполняться как единое целое заключается в фигурные скобки «{}» и возвращает результат последней операции <em>(что очень похоже на оператор </em><em>запятая</em><em> в языках С/С++)</em>.</li>
+</ul>
+<h3 id="_2">Правила именования объектов и типов данных</h3>
+<p>В качестве идентификаторов объектов и типов данных можно использовать буквы, цифры и знаки подчеркивания в любых комбинациях, при условии, что первый символ идентификатора не является цифрой. Подчерк в начале имени или двойные подчерки в начале и в конце имени имеют специальное значение.</p>
+<p>Перед именем может быть указан специальный префикс (модификатор), который состоит из одного символа и имеет определнное значение:</p>
+<h4 id="_3">Префиксы (модификаторы)</h4>
+<ul>
+<li><strong>$</strong> — в начале имени обозначает локальную переменную, время жизни которой ограничено текущей областью видимости и при её завершении локальная переменная уничтожается.</li>
+<li><strong>:</strong> — двоеточие вначале идентификатора используется для указания имени <a href="https://newlang.net/types.html">типа</a></li>
+<li><strong>::</strong> — двойные двоеточия являются разделителями для указания пространства имен</li>
+<li><strong>@</strong> — Префикс <strong>@</strong> обозначает программный модуль</li>
+<li><strong>\</strong> — обратная коса черта является модификатором у имени макроса</li>
+</ul>
+<p>Если перед именем объекта модификатор не указан, сперва он проверяется на имя макроса, потом на локальную переменную и в последнюю очередь на имя объекта модуля.</p>
+<h3 id="_4">Локальные и глобальные переменные</h3>
+<p>В <em>NewLang</em> по умолчанию переменная создается как глобальная статическая, которая сохраняет свое состояние между вызовами.</p>
+<p>Чтобы создать локальную перемененную, перед её именем необходимо указать знак доллара <strong>$</strong>, тогда такая переменная будет уничтожаться при выходе из текущей области видимости. 
+Если условно классифицировать эти два варианта переменных, то можно считать, что переменная по умолчанию создается в куче, а локальная с префиксом <strong>$</strong> на стеке.</p>
+<p>Семантика локальных переменных, а так же аргументов у функций очень похожа на аргументы в bash скриптах, где <strong>$1</strong> или <strong>$arg</strong> — порядковый номер или имя аргумента.</p>
+<h3 id="_5">Пространства имен</h3>
+<p><em>NewLang</em> одновременно поддерживает и пространства имен, как в языке C++, так и модульную структуру кода как в языках Java и Python.
+Синтаксис для указания пространства имен очень похож на С++. Имена разделяются двойным двоеточием, а для определение пространства имен, его нужно указать перед открывающейся фигурной скобкой.</p>
+<pre><code>ns {
+    name {
+        var := 0; # Имя переменной будет ns::name::var
+        ::var := 1; # Переменная из глобального пространства имен
+    }
+}
+</code></pre>
+<h3 id="_6">Программные модули</h3>
+<p>В <em>NewLang</em> реализована концепция программных модулей - которая повторяет идею иерархического расположения файлов в структуре каталогов файловой системы, так же, как это сделано в языках Python и Java. Имя программного модуля начинается на префикс <strong>@</strong>, а структура каталогов указывается через точку. </p>
+<p>Причем в именовании объектов концепции программных модулей и пространства имен объединены. Например, полное имя переменой можно записать с указанием программного модуля <code>@root.dir.module::ns::name::var</code>, где <strong>root</strong> и <strong>dir</strong> это каталоги в файловой системе, а <strong>module</strong> — имя файла, т.е. <em>root/dir/module.nlp</em></p>
+<p>Области видимости объектов определяются аналогично прияным в языке Python с помощью подчерков перед именем переменной.</p>
+<p>Один подчерк соответствует защищенной, а два подчерка - приватной области видимости объекта в соответствующем модуле или классе.
+Но так же как и в языке Python области видимости больше соответствуют "джентльменской" договоренности и при явном указании имени, доступ к защищенным объектам можно получить указав их полное имя. Системные поля и объекты начинаются и заканчиваются на два подчерка.</p>
+<h3 id="_7">Макросы</h3>
+<p>Макросы в <em>NewLang</em>, это один или несколько терминов, которые заменяется на другой термин или на целую синтаксическую конструкцию (последовательность лексем). Макросы являются одновременно и раширением базового синтаксиса языка при реализации собственных диалектов DSL и синтаксическим сахаром. Главная особенность макросов в том, что они позволяют изменять выражения еще до их вычисления во время выполнения. А так как раскрытие макросов происходит на этапе синтаксического анализа, это позвоялет подменять ими любые другие термины и даже модифицировать сам синтаксис <em>NewLang</em>. </p>
+<p>Пока текущая реализация макросов предназначена для проверки общей концепции их использования и в будущем может немного измениться. Поэтому, сейчас раскрытие и проверки макросов сделаны в объеме, который минимально достаточен для их начального использования. я препроцессора в C/C++.</p>
+<h4 id="_8">Определение макросов</h4>
+<p>Макрос создается по тем же самым правилам, что и обычная переменная. Идентификатором макроса может быть одиночное имя (термин с префиксом макроса) или  последовательность из нескольких лексем, которая записывается между двумя обратными слешами. 
+В качестве тела (значения) у макроса может быть термин или корректное выражение языка, например: <code>\обычный_макрос := 123;</code>, <code>\\два термина\\ := {func(); func2(123);};</code> или последовательность лексем, которая записывается  между двумя обратными слешами <code>\макрос_из_лексем := \\ call1(); call2(); call3() \\;</code>.
+Тело текстового макроса записывается между тремя обратными слешами: <code>\текстовый_макрос := \\\ исходный текст программы для лексера \\\;</code>.</p>
+<blockquote>
+<p>Первоначальноа у меня было желание ограничить время жизни макросов так же как у локальных переменных - только текущей областью видимости, чтобы при её завершении макрос удаляется автоматически. Но макросы обработываются раньше, чем происходит анализ входных лексем парсером (т.е. раньше, чем формируются сами области видимости). А перенести обработку макросов на более поздний этап, например, после создания синтаксичсекого дереава, так же не получается, так как пропадет возможность модифицировать AST во время парсинга исходного кода. Поэтому пришлось выбирать между локальными областями видимости у макросов и возможностьию модификации абстрактного синтаксического дерева, и в результате я выбрал последнее. Поэтому, макросы могут произвольным образом менять синтаксис языка, но всегда имеют глобальную область видимости где бы они не были объявлены.</p>
+</blockquote>
+<p>Для удаления макросов требуется использовать специальный синтаксис: <code>\\\\ name \\\\;</code> или <code>\\\\ \\два термина\\ \\\\;</code>, т.е. указать идентификатор макроса между четырмя обратными слешами. Необходимость использования отдельной синтасической конструкции для удаления макросов вызвана тем, что они обработываются и раскрываются еще до этапа анализа в парсере. Из-за этого операторы <a href="https://newlang.net/ops.html">создания и присвоения значения</a> в полном объеме работают только с макросами, идентификаторами которых выступают последовательность лексем, тогда как создание макроса с идентификатором из одиночного термина может быть только оператор создания или присвоения, т.е. <code>\macro := new_expression;</code>, а использование операторов <code>::=</code> и <code>=</code> не допускается.</p>
+<p>Один из терминов в идентификаторе макроса может иметь аргументы, которые указываются в круглых скобках. Аргументы в теле макроса записываются как имя локальной переменой, но перед её именем (или порядковым номером аргумента) нужно добавить обратный слеш, т.е. <code>\$name</code> или <code>\$1</code>.</p>
+<pre><code>    # Обычные макросы (тело макроса корректное выражение)
+    \macro      := replace();
+    \macro2(arg)   := { call(\$arg); call()};
+    \\name1 name2\\  := replace();
+
+    # Тело макросов из последовательности лексем
+    \if(...)    := \\ [ \$* ]--&gt; \\; # Выражение может быть не полным
+    \elif(...)  := \\ ,[ \$* ]--&gt; \\;
+    \else       := \\ ,[ _ ]--&gt; \\;
+
+    # Тело макроса из текстовой строки (как в препроцессоре С/С++)
+    \macro_str  := \\\ строка - тело макроса \\\; # Строка для лексера
+
+    # Оператор удаления макроса (любого другого объекта?????)
+    \\\\macro_str\\\\;
+
+    # Классическая запись условного оператора
+    # с использованием определнных выше макросов
+    if( condition ){
+        ...
+    } elif( condition2 ) {
+        ...
+    } else {
+        ...
+    };
+</code></pre>
+<p>В настоящий момент макросы реализоаны следующим образом.  </p>
+<p>Идентификатор мароса, левое выражение от оператора присвоения, может быть одиночным термином или состоять из лексем (одного или нескольких терминов, которые заисны между двойными слешами), а тело марокса макроса так же может быть одиночным термином, состоять из лексем или быть обычной текстовой строкой, которая будет анализироваться парсером только после раскрытия тела макроса (как в препроцессоре С/С++).</p>
+<pre><code>   # Тело макроса полное (корректное) выражение
+    \macro      := replace(); 
+    \macro2(arg)   := { call(\$arg); call()};
+    \\lexem1 lexem2\\  := replace();
+
+    # Тело макросов из последовательности лексем
+    # и может быть не полным выражением
+    \if(...)    := \\ [ \$* ]--&gt; \\; 
+    \elif(...)  := \\ ,[ \$* ]--&gt; \\;
+    \else       := \\ ,[ _ ]--&gt; \\;
+
+    # Тело макроса из текстовой строки (как в препроцессоре С/С++)
+    \macro_str  := \\\ строка - тело макроса \\\; # Строка для лексера
+</code></pre>
+<ul>
+<li>Обычный макрос  - заменяет один или сразу несколько терминов на тело макроса. Тело обычного макроса может быть корректным выражением языка или последовательности лексем, которые будут анализироваться парсером только после раскрытия макроса. Таким образом можно модифицировать базовый синтаксис языка за счет применения сразу нескольких макросов при записи одного оператора (см. условный оператор или оператор выбора).</li>
+<li>Текстовый макрос - так же заменяет один или несколько терминов, но его тело представляет собой обычный текстовый фрагмент исходного кода, который во время раскрытия макроса передается на вход лексера. Фактически, текстовые макросы это полный аналог макросов дл</li>
+</ul>
+<p>Макросы используются и для превращеня базового синтаксиса <em>NewLang</em>, в более привычный синтаксис на основе <a href="https://newlang.net/syntax_dsl.html">ключевых слов</a>, так как такой тест гораздо легче воспринимается при последующем чтении исходного кода.</p>
+<p><a href="https://newlang.net/syntax_dsl.html">Например:</a>.</p>
+<pre><code>    \if(...)     ::= \\ [ \$* ]--&gt; \\;
+    \while(...)  ::= \\ [\$*] &lt;-&gt; \\;
+    \return $arg ::=  \\ -- \$arg -- \\;
+    \true ::= 1;
+</code></pre>
+<p>Тогда цикл до 5:</p>
+<pre><code>count:=1;
+[ 1 ] &lt;-&gt; {
+    [count&gt;5] --&gt; {
+        -- 42 --;
+    };
+    count+=1;
+};
+</code></pre>
+<p>будет выглядеть более привычно</p>
+<pre><code>count:=1;
+while( true ) {
+    if(count&gt;5) {
+        return 42;
+    };
+    count+=1;
+};
+</code></pre>
+<p>С полным списком макросов можно ознакомится <a href="https://newlang.net/syntax_dsl.html">тут</a> или посмотреть исходный <a href="https://github.com/rsashka/newlang/blob/master/examples/dsl.nlp">код программного модуля</a>.</p>
+<h3 id="_9">Специальные идентификаторы</h3>
+<ul>
+<li><strong>$0</strong> — текущий объект для класса или None в остальных случаях.</li>
+<li><strong>$*</strong> — Все аргументы текущей функции или модуля</li>
+<li>
+<p><strong>@*</strong> — Все аргументы запущенной программы</p>
+</li>
+<li>
+<p><strong>$$</strong> — родительский объект (в том числе и при переопределении функций).</p>
+</li>
+<li><strong>@@</strong> — Системный контекст</li>
+<li><strong>@$</strong> — Текущий модуль</li>
+</ul>
+<p>Проверить, является ли текущий модуль основным, можно протестировав его нулевой аргумент. У основного модуля программы, нулевой аргумент всегда будет содержать имя исполняемого файла, а остальные аргументы соответствовать параметрам командной строки (если они есть). Если файл загружен как модуль,
+то нулевой аргумент у модуля будет пустым.</p>
+<pre><code># Аналог проверки в Python
+# if __name__ == &quot;__main__&quot;: 
+
+[@$.$0] --&gt; { # или \ifmain при использовании макросов из модуля @dsl
+    ...
+};
+</code></pre>
+<h3 id="_10">Зарезервированные имена компилятора</h3>
+<p>При работе парсера <em>NewLang</em> автоматически генерируются несколько зарезервированных имен, которые можно использовать как обычные константы.
+Большинство из них соответствуют макросам препроцессора у С/С++:</p>
+<ul>
+<li>__FILE__ - расширяется до полного пути к текущему файлу</li>
+<li>__LINE__ - содержит номер текущей строки</li>
+<li>__TIMESTAMP__ - дату и время последней модификации текущего файла</li>
+<li>
+<p>__MD5__ - md5 хеш текущего файла</p>
+</li>
+<li>
+<p>__DATE__ - дата и время начала запуска компилятора (имеет одно и тоже значение для всех обрабатываемых файлов)</p>
+</li>
+<li>__COUNTER__ - целочисленный счетчик, который увеличивает свое значение при каждом обращении</li>
+<li>
+<p>__NLC_VER__ - версия NewLang</p>
+</li>
+<li>
+<p>__SOURCE_GIT__ - идентификатор исходных файлов NewLang git репозитория, использованных при сборке</p>
+</li>
+<li>__DATE_BUILD__ - дата сборки исходников NewLang</li>
+<li>__SOURCE_BUILD__ - дата сборки и git идентификатор исходных файлов NewLang одной строкой</li>
+</ul>
+<h3 id="_11">Системные свойства</h3>
+<p>Несмотря на то, что не все объекты <em>NewLang</em> являются классами с точки зрения <a href="https://newlang.net/type_oop.html">реализованной концепции ООП</a>, тем не менее, каждый объект имеет системные свойства, которые можно считать во время выполнения как обычные свойства объекта:</p>
+<h4 id="_12">У всех переменных (объектов) есть системные свойства</h4>
+<ul>
+<li>__name__ - краткое имя переменной (объекта)</li>
+<li>__full_name__ - полное имя переменной, включая имя модуля и пространство имен</li>
+<li>__type__ - текущий тип переменной. Может изменится при некоторых операциях</li>
+<li>__type_fixed__ - тип переменной (объекта) который не может измениться (ограничитель)</li>
+<li>__module__ - имя модуля в котором определена переменная (объект)</li>
+<li>__class__ - имя класса переменной или пусто, если объект не является классом</li>
+<li>__base__ - словарь со списком базовых классов или пусто, если объект не является классом</li>
+<li>
+<p>__size__ - количество элементов у объекта, если применимо или :None </p>
+</li>
+<li>
+<p>__doc__ - документация по текущему объекту (если есть, иначе пустая строка)</p>
+</li>
+<li>__str__ - строковое представление объекта для дампа</li>
+<li>__source__ - исходный текст модуля или функции</li>
+</ul>
+<h4 id="_13">Системные свойства у модулей</h4>
+<ul>
+<li>__file__ - полный путь к файлу модуля (соответствует макросу __FILE__)</li>
+<li>__timestamp__ - дата и время последней модификации файла модуля (соответствует макросу __TIMESTAMP__)</li>
+<li>__md5__ - хеш исходных данных модуля (соответствует макросу __MD5__)</li>
+</ul>
+<hr />
+<p>syntax.md</p>
+<h2 id="newlang">Система типов NewLang</h2>
+<p>Так <em>NewLang</em> является языком с динамической типизацией, то явное указание типа не влияет на размер памяти, занимаемой переменной и в основном определяет логические ограничения на возможность присвоения переменной значения другого типа.</p>
+<p>Информация о типах используется при проверке их совместимости, когда существующему объекту присваивается значение другого типа. Такая операция возможна только когда типы совместимы между собой и допускают автоматическое приведение. Это справедливо как во время парсинга/компиляции исходного теста, так и во время выполнения в режимах интерпретатора и/или скомпилированного файла.</p>
+<p>Согласно <a href="https://newlang.net/syntax.html">правилам синтаксиса</a> <em>NewLang</em>, имя типа всегда начинается с двоеточия <strong>:</strong>.</p>
+<ul>
+<li>
+<p><a href="https://newlang.net/type_nor.html">Числа</a></p>
+</li>
+<li>
+<p><a href="https://newlang.net/type_str.html">Строки</a> </p>
+</li>
+<li>
+<p><a href="https://newlang.net/type_func.html">Функции</a></p>
+</li>
+<li>
+<p><a href="https://newlang.net/type_iter.html">Итераторы</a></p>
+</li>
+<li>
+<p><a href="https://newlang.net/type_oop.html">Словари и классы</a></p>
+</li>
+<li>
+<p><a href="https://newlang.net/type_other.html">Специальные типы</a></p>
+</li>
+<li>
+<p><a href="https://newlang.net/type_native.html">Нативные типы данных</a></p>
+</li>
+</ul>
+<h3 id="_14">Преобразование типов</h3>
+<p>Несмотря на динамическую типизацию языка, если тип переменной указан явно, то автоматическое приведение типов не выполняется, и чтобы присвоить переменой значение не совместимого типа, требуется его явное преобразование.</p>
+<p>Так как символьные названия типов относятся к деталям реализации, то явное преобразование в конкретный тип данных производится с помощью вызова функции с именем типа, т.е. :Bool(), :StrWide(), :Int64() и т.д.</p>
+<p>Примеры:</p>
+<pre><code># Создать тензор из строки широких символов с автоматическим выводом типа
+#(тип Int32 будет на системах с Linux, а под Windows тип тензора будет Int16)
+&gt; tstr := :Tensor(&quot;Тест&quot;); 
+[1058, 1077, 1089, 1090,]:Int32
+
+# Тоже самое, но тензор заданной размерности
+&gt; t2 := :Tensor[2,2](&quot;Тест&quot;);
+[
+  [1058, 1077,], [1089, 1090,],
+]:Int32
+
+# Создать символьную строку из тензора
+&gt; :StrWide(tstr) 
+Тест
+
+# Изменить тип данных тензора без изменения размерности
+&gt; :Float64(t2) 
+[
+  [1058, 1077,], [1089, 1090,],
+]:Float64
+
+# Изменить размерность тензора и его тип 
+# (в данном случае с частичной потерей данных)
+&gt; t3 := :Int8[4]( t2 ) 
+[34, 53, 65, 66,]:Int8
+
+# Создать тензор из словаря
+&gt;:Tensor( (1,2,3,) ); 
+[1, 2, 3,]:Int8
+
+# Преобразовать байтовую строку в тензор
+&gt;:Tensor( 'first second' ) 
+[102, 105, 114, 115, 116, 32, 115, 101, 99, 111, 110, 100,]:Int8
+
+# Получаем тензор из словаря с такими же данными
+&gt;:Tensor( (first='first', space=32, second='second',) ) 
+[102, 105, 114, 115, 116, 32, 115, 101, 99, 111, 110, 100,]:Int8
+
+# Тензор заданного формата с нулями,
+# где многоточие повторяет последнее значение до требуемого размера
+&gt;:Float64[10,2]( 0, ...) 
+[
+  [0, 0,], [0, 0,], [0, 0,], [0, 0,], [0, 0,], [0, 0,], [0, 0,], [0, 0,], [0, 0,], [0, 0,],
+]:Float64
+
+# Тензор со случайными данными, где между многоточиями указана функция,
+# которую следует вызывать каждый раз при получении нового элемента тензора
+#
+# Тут пришлось придумывать новую синтаксическую конструкцию 
+# для вызова функции для каждого нового элемента, т.к. многоточие 
+# перед идентификатором, это оператор раскрытия словаря, 
+# а многоточие после идентификатора, это повторение последнего 
+# значения до конца заданной размерности.
+&gt;:Int32[3,2]( ... rand() ...) 
+[
+  [1804289383, 846930886,], [1681692777, 1714636915,], [1957747793, 424238335,],
+]:Int32
+
+# Создание тензора из диапазона
+&gt;:Int32[5,2]( 0..10 ); 
+[
+  [0, 1,], [2, 3,], [4, 5,], [6, 7,], [8, 9,],
+]:Int32
+
+# Или даже так
+&gt;:Tensor( 0..0.99..0.1 ); 
+[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9,]:Float64
+</code></pre>
+<hr />
+<p>types.md</p>
+<h2 id="_15">Числовые типы данных</h2>
+<p>Так <em>NewLang</em> является языком с динамической типизацией, то явное указание типа не влияет на размер памяти, занимаемой переменной и в основном определяет логические ограничения на возможность присвоения переменной значения другого типа.</p>
+<p>Информация о типах используется при проверке их совместимости, когда существующему объекту присваивается значение другого типа. Такая операция возможна только когда типы совместимы между собой и допускают автоматическое приведение. Это справедливо как во время парсинга/компиляции исходного теста, так и во время выполнения в режимах интерпретатора и/или скомпилированного файла.</p>
+<h3 id="_16">Арифметические типы</h3>
+<p>Все числа (кроме рациональных) в <em>NewLang</em> являются тензорами, т.е. массивами одного типа с произвольным количеством измерений и одинаковым размером столбцов в каждом. Единичное число, это тоже тензор нулевого размера.</p>
+<p>Поддерживаются только знаковые целые числа, т.к. в без знаковых числах особая нужда отсутствует, а проблем с ними можно найти очень много на ровном месте.</p>
+<p>Проблемы без знаковых чисел (из интернета):</p>
+<blockquote>
+<p>Во-первых, вычитание двух без знаковых чисел, например 3 и 5. 3 минус 5 равно 4294967294, т.к. -2 не может быть представлено как без знаковое число. Во-вторых, непредвиденное поведение может возникнуть при смешивании целочисленных значений со знаком и без знака. С++ может свободно преобразовывать числа со знаком и без знака, но не проверяет диапазон, чтобы убедиться, что вы не переполняете свой тип данных. </p>
+</blockquote>
+<p>Имена встроенных арифметических типов: :Int8, :Int16, :Int32, :Int64, :Float16, :Float32, :Float64, :Complex16, :Complex32, :Complex64 говорят сами за себя. Отдельным типом идет логический тип :Bool, который может принимать значения только 0 или 1 (<em>false</em>/<em>true</em> соответственно), и в зависимости от выполняемой операции тоже может быть отнесен к целочисленным типам, так и не входить в их состав (данный подход интерпретации логического типа данных был взят из библиотеки Torch).</p>
+<pre><code>// Treat bool as a distinct &quot;category,&quot; to be consistent with type promotion
+// rules (e.g. `bool_tensor + 5 -&gt; int64_tensor`). If `5` was in the same
+// category as `bool_tensor`, we would not promote. Differing categories
+// implies `bool_tensor += 5` is disallowed.
+//
+// NB: numpy distinguishes &quot;unsigned&quot; as a category to get the desired
+// `bool_tensor + 5 -&gt; int64_tensor` behavior. We don't, because:
+// * We don't want the performance hit of checking the runtime sign of Scalars.
+// * `uint8_tensor + 5 -&gt; int64_tensor` would be undesirable.
+</code></pre>
+<p>Доступ к элементам тензора происходит по целочисленному индексу, который начинается с 0. Для многомерного тензора, индексы элемента перечисляются в квадратных скобках через запятую. Поддерживается доступ к элементам через отрицательный индекс, который обрабатывается точно так же, как в Python (-1 последний элемент, -2 предпоследний и т.д.).</p>
+<p>Литерал тензор в тексте программы записывается в квадратных скобках с обязательной завершающей запятой, т.е. [1, 2,] — это литерал одномерный тензор из двух чисел. После закрывающей скобки тип тензора может быть указан в явном виде. Если тип не указан, то он выводится автоматически на основании указанных данных и выбирается минимально возможный байтовый размер, который позволяет сохранить все значения без потери точности.</p>
+<p>Примеры:</p>
+<pre><code>$var_char := 123; # Тип Int8 выводится автоматически
+$var_short := 1000; # Тип Int16 выводится автоматически
+$var_bool := [0, 1, 0, 1,]; # Тензор из 4 элементов. Тип Bool выводится автоматически
+$tensor[10,10]:Int32 := 1; # Тензор Int32 размером 2x2 инициализированный 1
+$scalar := $tensor[5,5]; # Присвоить скаляру значение указанного элемента тензора
+</code></pre>
+<h3 id="_17">Рациональные числа</h3>
+<p>Для специальных расчетов с неограниченной точностью в <em>NewLang</em> используется отдельный тип чисел - рациональные. Они записываются в форме обыкновенной дроби, в которой числитель должен быть целым числом, а знаменатель натуральным (целым без нуля). В качестве разделителя дроби используется обратная косая черта, т.е. <code>1\1</code> - рациональное число 1, <code>-5\1</code> - рациональное числа -5 и т.д.</p>
+<hr />
+<p>type_nor.md</p>
+<h3 id="_18">Символьные строки</h3>
+<p><strong>NewLang</strong> поддерживает два типа строк, символьные (широкие символы) - <em>:StrWide</em> и байтовые - <em>:StrChar</em>. Различия между ними заключается в типе единичного элемента. У символьных строк единичным элементом является широкий символ <em>wchar_t</em>, а у байтовой строки единичным элементом является один байт (точнее <em>:Int8</em>, т.е. 8-ми битное целое число со знаком). Символьные строки - литералы в исходном тексте записывается в «двойных кавычках», а байтовые строки в 'одинарных кавычках'.</p>
+<p>Количество элементов символьной строки возвращается в широких символах, а размер байтовой строки в байтах, поэтому и обращение к элементу строки по индексу происходит соответственно либо к символу, либо к байту соответственно.</p>
+<h4 id="_19">Форматирование строк</h4>
+<p>Так как к любой переменной можно обратиться так же, как к функции (указав после её имени круглые скобки) и результатом этой операции будет создание копии/клона объекта, то у некоторых типов данных (словари, классы и символьные строки) такую операцию можно использовать в качестве шаблона при создании копии объекта с модифицированными свойствами. Если в скобках указать новые и/или изменяемые значения как аргументы при вызовах функций, то при создании клона строки, результирующая копия будет содержать уже измененные данные.</p>
+<p>Например:</p>
+<pre><code>$template := &quot;${name} $1&quot;; # Обычная строка широких символов
+$result := $template(&quot;шаблон&quot;, name = &quot;Строка&quot;); # result = &quot;Строка шаблон&quot;
+</code></pre>
+<hr />
+<p>type_str.md</p>
+<h2 id="_20">Функции</h2>
+<p>Синтаксис <em>NewLang</em> поддерживает два типа функций: обычные, чистые функции.</p>
+<p>Оба типа функций поддерживаются аргументы по умолчанию. При создании функции, её аргументы указываются как в Python, т.е. вначале идут обязательные аргументы, потом аргументы со значениями по умолчанию, где имя аргумента отделяется от его значения по умолчанию знаком равно =. Если функция допускает обработку произвольного количества аргументов, то последним в списке параметров указывается многоточие ... (три точки подряд) .</p>
+<p>У аргументов и типа возвращаемого значения можно указать сразу несколько допустимых типов данных. 
+Для этого их необходимо перечислить через запятую и заключить в угловые скобки, т.е. </p>
+<pre><code>func(arg:&lt;:Int8, :Int16, :Int32&gt;): &lt;:Int8, :Int16, :Int32&gt; ::= {$arg*$arg};
+</code></pre>
+<p>Для создания объекта "функция" используются те же правила синтаксиса и операторы, что и для создания переменных, просто у имени функции обязательно должны быть круглые скобки.</p>
+<h3 id="_21">Обычные функции</h3>
+<p>Обычная функция — такие функции являются именно обычными функциями в понимании С/С++. Внутри них можно писать совершенно любой код, включая проверки условий, циклы, вызовы других функций и т.д.</p>
+<pre><code>hello(str) := { 
+  $printf := :Pointer('printf(format:FmtChar, ...):Int32');
+  $printf('call: %s', $str);
+  $str;
+};
+hello('Привет, мир!');
+</code></pre>
+<h3 id="_22">Чистые функции</h3>
+<p>Чистая функция — это тоже обычная функция, только в том смысле, какой в него вкладывает функциональное программирование. Создание чистой функции происходит с помощью операторов <strong>:-</strong> или <strong>::-</strong>, а сам оператор заимствован из языка Пролог. У чистой функции отсутствует доступ к контексту и глобальным переменным, поэтому она может обрабатывать только те данные, которые были ей переданы в качестве аргументов.</p>
+<pre><code>Sum1(arg1, arg2) :- {$arg1+$arg2;}; # Создать или переопределить простую функцию, которая возвращает сумму аргументов
+Sum2(arg1, arg2) ::- {$arg1+$arg2;}; # Тоже самое, но если функция с таким именем уже существует, то будет ошибка
+</code></pre>
+<hr />
+<p>type_func.md</p>
+<h2 id="_23">Объектно ориентированное программирование</h2>
+<p><em>NewLang</em> поддерживает следующую концепцию объектно-ориентированного программирования:</p>
+<p>Каждый объект представляет собой отдельный тип данных, который наследуется от другого типа или от одного из его наследников (что очень похоже на концепцию объектов в языке Java), а экземпляр конкретного класса создается путем вызова его типа.</p>
+<p>Наследование поддерживается для типов словарь (<em>:Dictionary</em>) и класс (<em>:Class</em>) и всех их потомков.</p>
+<h3 id="_24">Словарь</h3>
+<p>Словарь (<em>:Dictionary</em>) — набор данных произвольного типа с доступом к отдельным элементам по целочисленному индексу или по имени элемента при его наличии (это похоже и на tuple и на структуру одновременно). Словари отличаются от <a href="https://newlang.net/type_nor.html">тензоров</a> тем, что всегда имеют только одно измерение, но каждый элемент может содержать произвольное количество элементов любого типа, в том числе и другие словари.</p>
+<p>Доступ к элементам словаря происходит по имени элемента, которое записывается через точку от имени переменной, либо по целочисленному индексу. Индекс начинается с 0 и как у тензоров, тоже может быть отрицательным (индекс элемента от "конца").</p>
+<pre><code># Новый тип (класс) :NewClass
+:Dict := :Dictionary() {
+    _ := 1; # У поля данных имя отсутствует
+    two := 2;
+    name := 3; 
+};
+dict := :Dict(); # Экземпляр класса (1, two=2, name=3,):Dict
+dict2 := :Dict(two=42); # Экземпляр класса (1, two=42, name=100,):Dict
+dict3 := dict2(99, name=0); # Копия объекта dict2 (99, two=42, name=0,):Dict
+
+</code></pre>
+<p><em>В будущем можно будет добавить возможность указывать индексы элементов словаря с помощь диапазонов</em>
+$dict = :Dict<a href="first=1, 4..4 = 29, 2..3 = 15, , 2..3 = 15, 7..9..2 = 7">10</a>; #(first=1, 0, 15, 15, 29, 0, 0, 7, 0, 7,)</p>
+<h4 id="_25">Словарь как литерал</h4>
+<p>Литерал с типом «словарь» в тексте программы записывается в круглых скобках с обязательной завершающей запятой, т. е. <code>(,)</code> — пустой словарь, <code>(1, 2= «2», name=3,)</code>. Для указания конкретного типа объекта у литерала, его необходимо указать после закрывающей скобки, т.е. <code>(1, two= «2», name=3,):Dict</code>.</p>
+<p>Важный момент! Хоть такой объект и будет иметь указанный тип, но он будет "неполноценным" и содержать только те данные, которые были явно указаны в скобках, что не гарантирует корректного создания реального объекта, т.к. для создания "правильного" объекта требуется вызвать его тип, т.е. <code>:Dict();</code></p>
+<p>Такой способ создания литералов классов используется в основном в различных операциях сравнения типов и "утиной типизации", т.к. не требует доступа к рантайму, да и сам класс может быть не определен.</p>
+<h3 id="_26">Перечисление, структура и объединение</h3>
+<p>Существуют три отдельных типа данных, <em>:Enum</em>, <em>:Struct</em> и <em>:Union</em> — которые так же являются словарями, но на их элементы накладываются определённые ограничения. Каждый элемент должен иметь уникальное имя, а его тип данных должен быть простым, т.е. числом или строкой фиксированного размера. Эти типы данных одновременно относятся к группе <a href="https://newlang.net/type_native.html"><em>:Plain</em></a> и могут быть представлены в двоичном виде в одной области машинной памяти.</p>
+<h3 id="_27">Классы</h3>
+<p>Тип данных <em>:Class</em> аналогичен словарю, но все свойства обязаны иметь имена (хотя доступ к свойствам класса по индексу так же возможен).
+При создании экземпляра класса создается новая переменная, для которой копируются свойства свойства и методы всех родителей. </p>
+<p>Синтаксис определения класса использует выглядит следующим образом:</p>
+<pre><code># Новый тип (класс) :NewClass
+:NewClass := :Class() { # Родительские класс или несколько классов через запятую
+    field := 1;
+    method() := {};
+};
+obj := :NewClass(); # Экземпляр класса
+</code></pre>
+<p>Так как <em>NewLang</em> реализует полный набор вариантов проверок при создании объектов (<strong>::=</strong> - создать новый объект, <strong>:=</strong> - создать новый или присвоить значение существующему, <strong>=</strong> - только присвоить значение, а если объект не существует будет ошибка), то переопределения наследуемых функций не требует вообще никаких ключевых слов:</p>
+<pre><code>:NewClass2 := :NewClass() { # Новый класс на базе существующего
+    field ::= 2;    # Будет ошибка, т. к. поле field уже есть в базовом классе
+    method() = {};  # Аналог override, т.к. method должен существовать в базовом классе
+};
+</code></pre>
+<h4 id="_28">Интерфейсы, именование методов классов и пространства имен</h4>
+<p>Для создания уникальных идентификаторов у методов классов <em>NewLang</em> использует подход, примерно как в языке Python. При создании метода класса создается глобальная функция с именем класса и именем метода, объединенные через разделитель области имен. 
+Например, в классе <code>:NewClass2</code> при создании метода <code>method</code> будет создана функция с именем <code>NewClass2::method</code>.</p>
+<p>Такая схема наименований методов полностью соответствует именованию функций в пространствах имен, и тем самым позволяет определять классы в чистыми виртуальными функциями (методами без реализации), а в последствии определять их, указав нужное имя в пространстве имен или в явном виде.</p>
+<pre><code>:NewClass3 := :NewClass() { # Новый класс на базе существующего
+    virtual() := _; # Виртуальный метод
+};
+
+obj := :NewClass3(); # объект создать нельзя, будет ошибка
+
+:NewClass3::virtual() := {}; # функция для виртуального метода
+
+obj := :NewClass3(); # ОК
+
+</code></pre>
+<h4 id="_29">Конструкторы, деструкторы и финализаторы у объектов</h4>
+<p>Пока в разработке, в настоящий момент планируется следующий синтаксис:</p>
+<pre><code>:NewClass := :Class() { # Новый класс на базе существующего
+    NewClass() := {...}; # Метод с именем типа - конструктор объекта
+    _NewClass() := {...}; # Скрытый метод с именем типа - приватный конструктор объекта
+    __NewClass__() := {...}; # Системынй метод с именем типа - деструктор объекта (вызывается сразу после удаления)
+    _() := {...}; # Скрытый метод без имени - финализатор (вызывается перед освобождением памяти)
+
+};
+</code></pre>
+<hr />
+<p>type_oop.md</p>
+<h2 id="_30">Нативные (машинные) типы данных</h2>
+<h3 id="pointer">:Pointer — указатель на системную область памяти или нативную функцию</h3>
+<p>Так как любой программе приходится взаимодействовать с внешним миром, то по неволе приходится закладывать возможность использования других библиотек и системы типов данных, и для этих целей служит тип <em>:Pointer</em>. Он создается при импорте функций из внешних библиотек и вручную его создать нельзя. Но можно вывести его значение, например для отладки.</p>
+<h3 id="plain">:Plain — указатель на представление данных в бинарном виде</h3>
+<p>Для взаимодействия с внешними библиотеками требуется еще и обмен данными. И для этих целей служит тип данных <em>:Plain</em> — который также является указателем, но на двоичное представление данных в области памяти. Конечно, если их можно представить в виде одного фрагмента.</p>
+<h3 id="_31">Перечисление, структура и объединение</h3>
+<p><em>:Enum</em>, <em>:Struct</em> и <em>:Union</em> — это такие же словари, только на их элементы накладываются определённые ограничения. Каждый элемент должен иметь уникальное имя, а его тип данных должен быть простым, т.е. числом или строкой фиксированного размера. Эти типы данных так же относятся к группе <em>:Plain</em> и могут быть представлены в двоичном виде в одной области машинной памяти.</p>
+<hr />
+<p>type_native.md</p>
+<h2 id="_32">Итераторы</h2>
+<p>Итераторы в <em>NewLang</em>, как и в остальных языках программирования, предназначены для перебора элементов. Но, в отличии от итераторов в С++, итераторы <em>NewLang</em> являются самостоятельными объектами, а не указателями на отдельные элементы объекта-контейнера. Итераторы <em>NewLang</em> поддерживают фильтрацию элементов по имени за счет использования функций обратного вызова.</p>
+<p>Для работы с итераторами используется следующий синтаксис:
+- <strong>?</strong> или <strong>?(</strong> текст <strong>)</strong> - создание итератора без фильтра или с <em>regex</em> фильтрацией по имени поля
+- <strong>?(</strong> func, args... <strong>)</strong> - создание итератора с использованием функции обратного вызова (аналог LINQ)
+- <strong>!</strong> или <strong>!(</strong> количество возвращаемых элементов <strong>)</strong> - перебор элементов итератора
+- <strong>?!</strong> или <strong>!?</strong> - получить текущий элемент без перемещение курсора
+- <strong>!!</strong> - сбросить указатель итератора в начальное состояние (на первый элемент)
+- <strong>??</strong> - создать итератор и сразу его выполнить, возвращая все значения в виде элементов словаря максимально возможного размера. Это своего рода синтаксический сахар для краткой записи последовательности команд <code>?; !(9223372036854775807);</code></p>
+<p>Примеры создания итераторов с разными фильтрами отбора данных:</p>
+<pre><code>iter := dict ? (&quot;name&quot;); # Создание итератора для значений с указанным именем
+iter := dict ? (&quot;regex.&quot;); # Создание итератора для полей с префиксом &quot;regex&quot;
+
+# Чистая функция для фильтрации по значению
+filter(value) :- { $value &amp;&amp; $value &lt; 10; }; 
+iter := dict ? (filter); # Создание итератора для значений меньше 10
+
+equal(value, arg) := { $value == arg }; # Обычная функция
+iter := dict ? (equal, 100); # Создать итератор только для значений 100
+</code></pre>
+<p>Оператор перебора элементов итератора <strong>!</strong> возвращает текущий элемент и сдвигает указатель на следующий. Точнее, на количество считанных элементов, так как прочитать элементы из итератора можно не только по одному, а и заданными порциями, например по 10 за один раз, <code>iter ! (10);</code>.</p>
+<p>Если указать количество считываемых элементов <strong>!(0)</strong>, то будет возвращен сам элемент, но для значений отличных от нуля будет возвращаться не элемент данных, а словарь с данными, считанными из итератора. Из-за этого операторы <strong>!</strong> и <strong>!(0)</strong> <strong>НЕ</strong> эквивалентны, т.к. по разному обрабатывают конец данных.</p>
+<p>Лучше всего это показать на примерах для словаря с пятью элементами:</p>
+<pre><code>dict := (1,2,3,4,5,)?; # Создать итератор для словаря
+
+dict!; # -&gt; 1
+dict!; # -&gt; 2
+dict!; # -&gt; 3
+dict!; # -&gt; 4
+dict!; # -&gt; 5
+dict!; # -&gt; будет исключение &quot;конец итератора&quot;
+
+# Но
+dict !(0); # -&gt; (1,)
+dict !(0); # -&gt; (2,)
+dict !(0); # -&gt; (3,)
+dict !(0); # -&gt; (4,)
+dict !(0); # -&gt; (5,)
+dict !(0); # -&gt; (,) - вернется пустой словарь
+</code></pre>
+<p>Так же для чтения итератора можно указывать и отрицательное количество элементов. В этом случае будет возвращаться словарь всегда указанного размера, но элементы в словаре будут присутствовать только в случае чтения реальных данных из итератора:</p>
+<pre><code>dict := (1,2,3,4,5,) ?; # Итератор для словаря с пятью элементами
+
+dict !(3); # -&gt; (1,2,3,)
+dict !(3); # -&gt; (4,5,)
+dict !(3); # -&gt; (,)
+
+# Но
+dict !(-3); # -&gt; (1,2,3,)
+dict !(-3); # -&gt; (4,5, :IteratorEnd)
+dict !(-3); # -&gt; (:IteratorEnd, :IteratorEnd, :IteratorEnd)
+</code></pre>
+<hr />
+<p>type_iter.md</p>
+<h2 id="_33">Специальные типы данных</h2>
+<h3 id="none">Пусто (:None)</h3>
+<p><em>:None</em> (пусто) — не содержит значения (точнее имеет одно значение <em>:None</em>). Указывается в тексте программы как один подчерк «_». Значение <em>None</em> имеют не инициализированные переменные и при попытке чтения из такой переменной возникает ошибка.</p>
+<p>Тип переменной может быть явно указан или выведен автоматически из присваиваемого значения. Присвоить новое значение уже инициализированной переменной можно только для совместимого типа, так как неявное преобразование типов не допускаются.</p>
+<pre><code class="language-bash">    $var := _; # Создать не инициализированную переменную
+    $var2 := var; # Ошибка!!! Нельзя прочитать не инициализированную переменную var
+    $var = 1000; # У переменной будет тип Short (минимальный размер для хранения значения)
+    $var = 0,5; # Ошибка!!! Short ← Float не совместимы
+    $var = _; # Очистить значение переменной
+    $var = 0,5; # Теперь можно, т. к. None совместим с любым типом
+</code></pre>
+<h3 id="range">Диапазон (:Range)</h3>
+<p>Диапазон — специальный тип данных, являющейся приблизительным аналогом типа «генератор» в Python. К диапазону можно обращаться как к итератору и он будет поочередно выдавать элементы в указанном интервале с заданным шагом. Диапазон в тексте программы указывается как два или три элемента через две точки, например 1..5 — диапазон от единицы до пяти с шагом по умолчанию 1. В качестве параметров диапазона можно указывать не только литералы, но и имена переменных и даже рациональные числа. Например, 0,1..$stop..0,1 — диапазон от 0,1 до значения, указанного в переменной $stop с шагом 0,1 или 0..1\10 - диапазон рациональных числе от 0 до 10.</p>
+<p>Диапазон целых чисел можно использовать в качестве индекса у тензоров (точнее, у любых объектов, которые допускают доступ к своим элементам по индексу, т.е. тензоры, словари и текстовые строки). Фактический, это поведение аналогично slice в языке Python и array[1:5] в Python означает тоже самое, что и array[1..5] в <em>NewLang</em>.</p>
+<p>В качестве индекса у тензоров еще можно указать произвольное количество измерений с помощью многоточия, т.е.</p>
+<pre><code class="language-bash">    $tensor[…, 0] = 0; # Обнулить все первые элементы в каждом измерении.
+</code></pre>
+<p><em>В будущем можно будет добавить возможность указывать индексы элементов с помощь диапазонов</em>
+$tensor = :Tensor<a href="4..4 = 29, 2..3 = 15, , 7..9..2 = 7, 10 ...">12</a>; # [0, 0, 15, 15, 29, 0, 0, 7, 0, 7, 10, 10,]</p>
+<hr />
+<p>type_other.md</p>
+<h2 id="_34">Операторы и управляющие конструкции</h2>
+<h3 id="_35">Создания объектов и присвоения новых значений</h3>
+<p>Для создания объектов и присвоения им новых значений в NewLang используется сразу три разных оператора:
+- <strong>::=</strong> - используется только для создания новых объектов, а если объект с таким именем уже существует, то генерируется ошибка.
+- <strong>:=</strong> - используется для тех же целей, но если объект с таким именем уже существует, то ошибки не происходит, а новое значение присваивается уже существующему объекту.
+- <strong>=</strong> - применяется только для присвоения значения уже существующим объектам, и если объект с указанным именем отсутствует, то тоже происходит ошибка выполнения.</p>
+<p>Использование трех разных операторов для создания/изменения объектов позволяет более гибко контролировать подобные операции и выявлять логические ошибки в коде на более раннем этапе. Например, при определении класса:</p>
+<pre><code>:NewClass2 := :NewClass() {
+    filed ::= 2; # Будет ошибка, т.к. если field уже есть в базовом классе
+    method() = {}; # Аналог override, т.к. method должен существовать в базовом классе
+};
+</code></pre>
+<p>Если же контролировать момент создание объектов и присвоения им значений не требуется, то можно пользоваться единственным оператором <strong>:=</strong>.</p>
+<pre><code>    var ::= 1.0; # Создать новую переменную var без явного указания типа
+    var = 100; # Присвоить новое значение уже существующей переменной
+    printf := :Pointer('printf(format:FmtChar, ...):Int32'); /* Создать новый или переопределить существующий объект printf */
+</code></pre>
+<h3 id="_36">Присваивание значения сразу нескольким переменным и оператор распаковки словаря</h3>
+<p><em>NewLang</em> поддерживает операцию присваивания сразу нескольким переменным, которые должны быть перечислены через запятую слева от оператора присвоения. С правой стороны от оператора присвоения может находится одно или несколько значений или оператор распаковки словаря <strong>...</strong> (многоточие). Оператор распаковки словаря можно использовать и при передаче аргументов в функцию. </p>
+<p>Причем словарь может быть указан и с левой стороны от оператора присвоения и таким образом можно записать самый простой способ перебора всех его элементов: <code>item, dict := ... dict;</code>, т.е. когда в цикле первый элемент словаря сохраняется в переменную item, а из самого словаря удаляется.</p>
+<p>Пример реализации цикла foreach для суммирования всех элементов словаря (или одномерного тензора) с использованием оператора раскрытия списка:</p>
+<pre><code>    summa := 0;
+    dict := (1,2,3,4,5,);
+    \while( dict ) {
+        # Первый элемент словаря перемещается в item
+        item, dict := ... dict; 
+        summa += item;
+    };
+</code></pre>
+<h3 id="_37">Арифметические операторы</h3>
+<p>Все операторы имеют парный аналог с присвоением значения:
+- <strong>+</strong> и <strong>+=</strong> — сложение арифметических типов данных;
+- <strong>-</strong> и <strong>-=</strong> — вычитание арифметических типов данных;
+- <strong>/</strong> и <strong>/=</strong> — деление (результат число с плавающей точкой);
+- <strong>//</strong> и <strong>//</strong>= — целочисленное деление с округлением к меньшему числу (как в Python);
+- <strong>*</strong> и <strong>*=</strong> — умножение;
+- <strong>**</strong> и <strong>**=</strong> — возведение в степень (он же используется и для повторения текстовых строк);</p>
+<h3 id="_38">Операторы сравнения:</h3>
+<ul>
+<li><strong>&lt;</strong>, <strong>&gt;</strong>, <strong>&lt;=</strong>, <strong>&gt;=</strong> — классические для сравнения скаляров</li>
+<li><strong>==</strong> и <strong>!=</strong> — операторы сравнения с автоматическим приведением совместимых типов для любых объектов</li>
+<li><strong>===</strong> и <strong>!==</strong> — операторы точного сравнения для любых объектов (автоматического приведения типов не выполняется)</li>
+</ul>
+<h3 id="_39">Проверка типа (имени класса объекта):</h3>
+<p>Для оператора проверки имени типа (класса) объекта используется символ тильда <strong>~</strong>. Он немного похож на оператор <em>instanceof</em> в Java. Левым операндом должен быть проверяемый объект, а правым — проверяемый тип, который можно указать строкой литералом, переменной строкового типа или именем проверяемого класса непосредственно. Результатом операции будет истина, если правый операнд содержит название класса проверяемого объекта или он присутствует в иерархии наследования.</p>
+<pre><code>    name := &quot;class&quot;; # Строковая переменная с именем класса
+    var ~ name; 
+    var ~ :class; # Сравнение с типом
+    var ~ &quot;class&quot;; # Имя типа как строка литерал
+</code></pre>
+<h3 id="_40">Утиная типизация</h3>
+<p>Оператор утиной типизации, два символа тильды <strong>~~</strong> — приблизительный аналог функции <em>isinstance()</em> в Python, который для простых типов сравнивает непосредственную совместимость типа левого операнда по отношению к правому. А для словарей и классов в левом операнде проверяется наличие всех имен полей, присутствующих у правого операнда, т.е.:</p>
+<pre><code>    (field1=«value», field2=2,) ~~ (); # Истина (т. е. левый операнд словарь)
+    (field1=«value», field2=2,) ~~ (field1=_); # Тоже истина (т. к. поле field1 присутствует у левого операнда)
+    (field1=«value», field2=2,) ~~ (not_found=_); # Ложь, т.к. поле not_found у левого операнда отсутствует
+</code></pre>
+<p>Строгая утиная типизация <strong>~~~</strong> — для простых типов сравнивается идентичности типов без учета совместимости, а для составных типов происходит сравнение всех свойств с помощью оператора строгого равенства. Для данной операции, пустой тип совместим только с другим пустим типом.</p>
+<h2 id="_41">Управляющие конструкции</h2>
+<p>К управляющим конструкциям языка NewLang относятся условный оператор, два вида циклов, оператор оценки выражения, оператор прерывания последовательности выполнения команд и перехват прерывания. Операторы проверки условий всегда указываются в квадратных скобках, а последовательность команд для выполнения — в фигурных.</p>
+<h3 id="_42">Условный оператор</h3>
+<p>В качестве оператора проверки условия используется синтаксическая конструкция, соответствующая по смыслу термину «следует», т.е. два тире и угловая скобка <strong>--&gt;</strong>. Такая запись условного оператора очень похожа на математическую и легко объединяется в последовательности для проверки множественных условий вида «else if».</p>
+<p>В общем случае условный оператор имеет вид: <strong>[</strong> условие <strong>] --&gt; {</strong> действие <strong>};</strong> или с условием иначе <strong>[</strong> условие <strong>] --&gt; {</strong> действие <strong>}, [_] --&gt; {</strong> действие иначе <strong>};</strong></p>
+<p>Для наглядности записанный с отступами:</p>
+<pre><code>    [ условие1 ] --&gt; { действие1 },
+    [ условие2 ] --&gt; действие2,
+    [ условие3 ] --&gt; действие3,
+    [_] --&gt; {действие_иначе};
+</code></pre>
+<p>Или тоже самое, но с использованием <a href="https://newlang.net/syntax_dsl.html">макросов из модуля dsl</a>.:</p>
+<pre><code>    \if( условие1 ) { 
+        действие1 
+    } \elif( условие2 ) действие2
+    \elif( условие3 ) действие3
+    \else { 
+        действие_иначе
+    };
+</code></pre>
+<h3 id="_43">Оценка выражения</h3>
+<p>Синтаксическая конструкция с помощью которой реализуется аналог оператора switch выглядит следующим образом:</p>
+<pre><code>    [ $var ] ==&gt; {
+        [1] --&gt; { code }; # Выполнится проверка условия $var == 1
+        [1, 2] --&gt; { code }; # Выполнится проверка условия ($var == 1 || $var == 2)
+        [_] --&gt; { code default }; # Ветка условия иначе
+    };
+</code></pre>
+<p>Или тоже самое, но с использованием <a href="https://newlang.net/syntax_dsl.html">макросов из модуля dsl</a>.:</p>
+<pre><code>    \match( $var ) ==&gt; {
+        \if( 1 ) { code };
+        \if( 1, 2) { code };
+        \else { code default };
+    };
+</code></pre>
+<p>Этот оператор очень похож на <em>Pattern Matching</em>, но все же не является сопоставлением с образцом, а скорее более краткая запись множественного оператора сравнения, так как в качестве оператора для оценки могут быть использован любые имеющиеся операторы сравнения на равенство:
+- <strong>==&gt;</strong> — проверка на равенство с приведением типов;
+- <strong>===&gt;</strong> — проверка на точное равенство;
+- <strong>~&gt;</strong> — проверка типа (имени класса);
+- <strong>~~&gt;</strong> — утиная типизация;
+- <strong>~~~&gt;</strong> — строгая утиная типизация.</p>
+<p>Но если в качестве оператора сравнения использовать оператор утиной типизации, то оценка выражения превращается в классический <em>Pattern Matching</em>:</p>
+<pre><code>    $value := (f1=1, f2=&quot;2&quot;,);
+    \match( $value ) ~~~&gt; {
+        \if((f1=_, ), (f1=_, f2=0, )) { code }; # Поле f2 отсутствует или число 
+        \if((f1=_, f2=&quot;&quot;,), (f1=_, f2='',)) { code }; # Поле f2 строка
+        \else { code default }; # Код по умолчанию
+    };
+</code></pre>
+<h3 id="_44">Операторы циклов</h3>
+<p>Для записи циклов используются оператор <strong>&lt;-&gt;</strong>, который ставится между условием цикла (проверкой логического выражения) и телом цикла. Условие цикла записывается в квадратных скобках и в зависимости от взаимного расположения цикл может быть с предусловием (while) или постусловием (dowhile):</p>
+<pre><code>    [условие while] &lt;-&gt; {
+        тело цикла while
+    };
+
+    {
+        тело цикла dowhile
+    } &lt;-&gt; [условие dowhile];
+</code></pre>
+<p>Пример реализации цикла foreach для суммирования всех элементов словаря (или одномерного тензора) с использованием оператора раскрытия списка:</p>
+<pre><code>    summa := 0;
+    dict := (1,2,3,4,5,);
+    [ dict ] &lt;-&gt; { # Условие цикла, пока есть данные
+        item, dict := ... dict; # Результат оператора распаковка словаря - первый его элемент перемещается в item
+        summa += item; # Вычисление суммы всех элементов словаря
+    };
+</code></pre>
+<p>Цикл с предусловием (<strong>while</strong>) поддерживает конструкцию <strong>else</strong>, которая выполняется, если условие входа в цикл не было выполнено. </p>
+<blockquote>
+<p><em>Внимание! 
+Это поведение отличается от аналогичных конструкций в языке Python, у которого секция </em><em>else</em><em> выполняется всегда, кроме прерывания цикла по break.</em></p>
+</blockquote>
+<p>Ветка <strong>else</strong> у оператора цикла записывается так же как и ветка <em>иначе</em> в условном операторе, т.е. </p>
+<pre><code>    [ cond ] &lt;-&gt; {
+        ...
+    },[_] --&gt; {
+        ...
+    };
+</code></pre>
+<p>Или тоже самое, но с использованием <a href="https://newlang.net/syntax_dsl.html">макросов из модуля dsl</a>.:</p>
+<pre><code>    \while(cond) {
+        ...
+    } \else {
+        ... # Выполнится, только если cond будет false при входе в цикл
+    };
+</code></pre>
+<h2 id="_45">Операторы прерывания выполнения (оператор возврата)</h2>
+<h3 id="_46">Прерывания, возврат и обработка ошибок</h3>
+<p>Изменена, а точнее полностью переделана идеология возвратов из функций и обработки ошибок. Теперь она чем-то похожа на подход, примененный в Ruby. Любая последовательность команд заключенные в фигурные скобки (в том числе тело функции), рассматривается как блок кода у которого нет специального оператора аналога <strong>return</strong>, который возвращает какое либо значение. Просто любой блок кода всегда возвращает последнее вычисленное значение (это чем то похоже на оператор «запятая» в языках C/C++).</p>
+<p>Для того, чтобы прервать выполнение кода используются две разные команды - прерывания, которые условно можно назвать <em>положительным</em> и <em>отрицательным</em> результатом. Что примерно соответствует семантике их записи. "Отрицательное" прерывание записывается в виде двух минусов, а "положительное" прерывание в виде двух плюсов, т.е. <strong>--</strong> или <strong>++</strong>.</p>
+<p>По умолчанию данные операции возвращают пустое значение. Чтобы прерывание вернуло результат, возвращаемые данные нужно записывать между парой соответствующих символов, т.е. <strong>--</strong> 100 <strong>--</strong>, что является близким аналогом оператора <code>return 100;</code> в других языках программирования, а <strong>++</strong>«Строка»<strong>++</strong> - аналогом <code>return «Строка»;</code>.</p>
+<p>Хотя более точным аналогом этих операторов будет все таки не <strong>return</strong>, а <strong>throw</strong>, т.к. эти команды не только прерывают выполнение последовательности команд в блоке, но их еще можно «ловить». Для этого используется блок кода с соответствующей семантикой, <strong>{+</strong> … <strong>+}</strong> - блок кода, который перехватывает положительные прерывания и <strong>{-</strong> … <strong>-}</strong> - блок кода, который перехватывает прерывания, созданные операторами <strong>--</strong>. </p>
+<p>Подобная концепция (в явном виде не разделять возвраты из функций и обработку исключений), хоть и выглядит немного необычной, но позволяет реализовывать несколько очень полезных финтов, которые сложно реализуемые в обычных языках программирования.</p>
+<p>Например, возврат из нескольких вложенных функций без необходимости обрабатывать результат возврата каждой из них. В этом примере функция <em>Test</em> перехватывает "положительные" прерывания из вложенных функций:</p>
+<pre><code>    Test0(arg) := { \if($arg==0) \return(&quot;DONE - 0&quot;); «FAIL» };
+    Test1(arg) := { \if($arg==1) \return(&quot;DONE - 1&quot;); Test0($arg); };
+    Test(arg) := {+ \if($arg &gt;= 0) Test1($arg); $arg; +};
+
+    Test(0); # Вернет «DONE — 0» возврат из вложенной функции Test0
+    Test(1); # Вернет «DONE — 1» возврат из вложенной функции Test1
+    Test(2); # Вернет «FAIL» возврат из вложенной функции Test0
+    Test(-2); # Вернет -2 — возврат из функции Test
+</code></pre>
+<p>Есть еще блок <code>{* … *}</code>, который перехватывает оба типа прерываний. Такой блок кода поддерживает типизацию возвращаемого значения, что позволяет в явном виде указывать типы данных, которые нужно перехватывать. Например, <code>{* ... *} :Type1</code> — будет перехвачено прерывание вида <code>++ :Type1 ++</code> или <code>--:Type1--</code>, что позволяет очень гибко формировать логику работы программы.</p>
+<p>Блоки кода с перехватом исключений также поддерживают оператор иначе (<em>\else</em>) который, по аналогии с оператором <em>\else</em> в циклах, выполняется только тогда, если прерывания не произошло.</p>
+<p>Можно указать сразу несколько типов, которые нужно перехватывать:</p>
+<pre><code>    {* 
+        ....
+    *} &lt;:Type1, :Type2, :Type3&gt;;
+</code></pre>
+<hr />
+<p>ops.md</p>
+<h2 id="_47">Макросы</h2>
+<h3 id="_48">Особенности ассоциативной памяти</h3>
+<p>Синтаксис языка <em>NewLang</em> основан на строгих правилах без использования ключевых слов, 
+и как бы он не выглядел логичным, ассоциация по ключевым словам вспоминается гораздо легче, например <strong>\if</strong>,
+чем комбинация <em>минус минус правая угловая скобка</em> <strong>--&gt;</strong>. 
+Из-за этого имеет смысл использовать не "чистый" базовый синтаксис, а более привычный диалект с использованием ключевых слов. </p>
+<h3 id="_49">Синтаксис на ключевых словах</h3>
+<p>В файле dsl.nlp находится набор макросов, которые расширяют базовый синтаксис <em>NewLang</em>, основанный на правилах,
+набором предопределенных ключевых слов как в классических языках программирования. 
+А при необходимости, их можно адаптировать или дополнить под собственную предметную область.</p>
+<h2 id="_50">Константы</h2>
+<h3 id="_51">Логические</h3>
+<ul>
+<li><strong>\true</strong></li>
+<li><strong>\yes</strong></li>
+<li><strong>\false</strong></li>
+<li><strong>\no</strong></li>
+</ul>
+<h3 id="_52">Системные имена</h3>
+<ul>
+<li><strong>\this</strong> - Текущий объект (<strong>$0</strong>)</li>
+<li><strong>\parent</strong> - Родительский объект (<strong>$$</strong>)</li>
+<li>
+<p><strong>\args</strong> - Все аргументы функции (<strong>$*</strong>)</p>
+</li>
+<li>
+<p><strong>\sys</strong> - Системный контекст запущенной программы (<strong>@@</strong>)</p>
+</li>
+<li><strong>\current</strong> - Текущий модуль (<strong>@$</strong>)</li>
+<li><strong>\cmd</strong> - Все аргументы выполняющегося приложения из командной строки (<strong>@*</strong>)</li>
+</ul>
+<h3 id="_53">Типовые функции и проверки</h3>
+<ul>
+<li><strong>\run('filename')</strong> - Выполнить указанный файл (<strong>@@('filename')</strong>)</li>
+<li><strong>\ifmain</strong> - Проверка, если текущий модуль основной (<strong>[@$.$0] --&gt;</strong> { ... })</li>
+<li><strong>\ifload</strong> - Проверка, если текущий модуль загружается впервые (<strong>[@$.<strong>load</strong>] --&gt;</strong> { ... })</li>
+</ul>
+<h3 id="_54">Операторы</h3>
+<ul>
+<li><strong>\match(cond)</strong> - Оператор <a href="https://newlang.net/ops.html#оценка-выражения">оценки выражения</a></li>
+<li><strong>\if(...)</strong> - Первый условный оператор (<strong>[\$*]--&gt;</strong> { ... })</li>
+<li><strong>\elif(...)</strong> - Второй и все последующие (<strong>,[\$*]--&gt;</strong> { ... })</li>
+<li>
+<p><strong>\else</strong> - Оператор <em>иначе</em> (<strong>,[_]--&gt;</strong> { ... })</p>
+</li>
+<li>
+<p><strong>\while(cond)</strong> - Оператор цикла с предусловием (<strong>[\$cond] &lt;-&gt;</strong> { ... } )</p>
+</li>
+<li>
+<p><strong>\dowhile(cond)</strong> - Оператор цикла с постусловием ({ ... } <strong>&lt;-&gt;[\$cond]</strong>)</p>
+</li>
+<li>
+<p><strong>\iter(obj, ... )</strong> - Создание итератора ( <strong>\$obj</strong> ? (\$*) )</p>
+</li>
+<li><strong>\next(obj, ... )</strong> - Следующий элемент итератора ( <strong>\$obj</strong> ! (\$*) )</li>
+<li><strong>\curr(obj, ... )</strong> - Текущий элемент итератора ( <strong>\$obj</strong> !? (\$*) )</li>
+<li><strong>\first(obj)</strong> - Перейти на первый элемент итератора ( <strong>\$obj</strong> !! )</li>
+<li><strong>\all(obj)</strong> - Получить сразу все элементы итератора ( <strong>\$obj</strong> ??)</li>
+</ul>
+<h3 id="_55">Прерывания</h3>
+<ul>
+<li><strong>\return</strong> - Положительное прерывание (<strong>++</strong>)</li>
+<li>
+<p><strong>\return(value)</strong>- Положительное прерывание с возвратом значения (<strong>++</strong> \$value <strong>++</strong>) </p>
+</li>
+<li>
+<p><strong>\error</strong> - Отрицательное прерывание (<strong>--</strong>)</p>
+</li>
+<li>
+<p><strong>\error(value)</strong> - Отрицательное прерывание с возвратом значения (<strong>--</strong> \$value <strong>--</strong>)</p>
+</li>
+<li>
+<p><strong>\break+</strong> и <strong>\break-</strong> - Выход из цикла:</p>
+</li>
+</ul>
+<pre><code>    \while(...) {+
+        ++ :Break ++   
+    +}
+    \while(...) {-
+        -- :Break --
+    -}
+</code></pre>
+<ul>
+<li><strong>\continue+</strong> и <strong>\continue-</strong> - В начало цикла:</li>
+</ul>
+<pre><code>    \while(...) {+
+        ++ :Continue ++   
+    +}
+    \while(...) {-
+        -- :Continue --
+    -}
+</code></pre>
+<hr />
+<p>syntax_dsl.md</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2016-2023 Ryabikov Aleksandr
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/rsashka" target="_blank" rel="noopener" title="Ryabikov Aleksandr on Github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["header.autohide", "navigation.instant", "navigation.tracking", "navigation.indexes", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fc8c2696.min.js"></script>
+      
+    
+  </body>
+</html>
